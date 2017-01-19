@@ -22,16 +22,14 @@ public class Cart {
 	 * 
 	 * @param newProductCode
 	 */
-	public void addToList(String newProductCode, int quantity) {
-		try {
-			if (isCodeValid(newProductCode)) {
-				// productCodes.add(newProductCode);
-				updateCart(newProductCode, quantity);
-			}
-		} catch (Exception ex) {
-			System.out.println("Failed to add product to cart - " + ex.getMessage());
+	public void addToList(String newProductCode, int quantity) throws Exception {
+		if (isCodeValid(newProductCode) && quantity != 0) {
+			// productCodes.add(newProductCode);
+			updateCart(newProductCode, quantity);
 		}
-
+		else{
+			throw new Exception("Quantity cannot be 0");
+		}
 	}
 
 	/**
@@ -80,7 +78,7 @@ public class Cart {
 		System.out.println("Clearing all items***************");
 	}
 
-	public static void main(String[] arg) {
+	public static void main(String[] arg) throws Exception {
 		Cart c = new Cart();
 		c.addToList("65P1UDGMXH2MLQW2", 1);
 		c.addToList("65P1-UDGM-XH2M-LQW2", 1);
