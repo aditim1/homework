@@ -3,11 +3,19 @@ package com.am.supermkt.core;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-public class Store {
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class Store extends HttpServlet {
+	
 	public Store() {
 		super();
 		try {
@@ -19,6 +27,16 @@ public class Store {
 	}
 
 	List<Product> productList;
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PrintWriter out = response.getWriter();
+		Date date = new Date();
+		out.println("<html><h2>Hi There!</h2><br/><h3>Date="+date +"</h3></html>");
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	}
 	
 	public List<Product> getProductList() {
 		return productList;
@@ -91,7 +109,7 @@ public class Store {
 		return 0;
 	}
 	
-	public static void main(String[] arg) {
+/*	public static void main(String[] arg) {
 		Store c = new Store();
 		try {
 			c.readCsv();
@@ -99,5 +117,5 @@ public class Store {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
+	}*/
 }
