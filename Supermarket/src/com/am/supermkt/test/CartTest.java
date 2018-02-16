@@ -1,4 +1,4 @@
-package com.am.supermkt.core.test;
+package com.am.supermkt.test;
 
 import org.junit.Rule;
 import org.junit.Test;

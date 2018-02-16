@@ -10,24 +10,26 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Store extends HttpServlet {
+import com.am.supermkt.vo.Product;
+import com.opensymphony.xwork2.ActionSupport;
+//extends ActionSupport
+public class StoreManager  {
 	
-	public Store() {
+	public StoreManager() {
 		super();
-		try {
-			readCsv();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 	List<Product> productList;
-	
+
+	 public String execute() throws Exception {
+		 	readCsv();
+		 	System.out.println("Total available products: " + productList.size());
+	      return "success";
+	   }
+	 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		Date date = new Date();
@@ -45,7 +47,7 @@ public class Store extends HttpServlet {
 	public void readCsv() throws IOException{
 		BufferedReader br = null;
 		try {
-			br = new BufferedReader(new FileReader("src/resource/store.csv"));
+			br = new BufferedReader(new FileReader("/resource/store.csv"));
 		
 		String line;
 		productList = new ArrayList<Product>();

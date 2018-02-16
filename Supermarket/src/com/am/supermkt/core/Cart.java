@@ -3,15 +3,17 @@ package com.am.supermkt.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.am.supermkt.vo.Product;
+
 public class Cart {
 
 	List<Product> products;
 	List<String> productCodes;
 	float cartTotal;
-	Store store;
+	StoreManager store;
 
 	public Cart() {
-		store = new Store();
+		store = new StoreManager();
 		productCodes = new ArrayList<String>();
 		products = new ArrayList<Product>();
 		cartTotal = 0;
