@@ -8,4 +8,16 @@ public class Page {
 	public Page(WebDriver driver) {
 		this.driver = driver;
 	}
+
+	public void checkHeader(String headerText) {
+		//Assert if header text matches the string passed.
+	}
+	
+	public void checkFooter(String footerText) {
+		//Assert if footer text matches the string passed.
+	}
+	
+	public void navigateTo(String link) {
+		//Clicks on link specified
+	}
 }
