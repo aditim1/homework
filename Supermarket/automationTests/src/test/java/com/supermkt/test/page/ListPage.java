@@ -24,9 +24,14 @@ public class ListPage extends Page {
 	public void submit() {
 		driver.findElement(submitButton).click();
 	}
-	
+
 	public void performSearch(String textToSearch) {
 		setSearchText(searchText);
 		submit();
+	}
+
+	@Override
+	public boolean checkFooter(String str) {
+		return false;
 	}
 }
