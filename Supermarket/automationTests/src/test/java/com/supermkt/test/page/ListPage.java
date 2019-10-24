@@ -12,13 +12,9 @@ public class ListPage extends Page {
 	public ListPage(WebDriver driver) {
 		super(driver);
 	}
-
-	public By getSearchText() {
-		return searchText;
-	}
-
-	public void setSearchText(By searchText) {
-		this.searchText = searchText;
+	
+	public void setSearchText(String textToSearch) {
+		driver.findElement(searchText).sendKeys(textToSearch);
 	}
 
 	public void submit() {
@@ -26,12 +22,13 @@ public class ListPage extends Page {
 	}
 
 	public void performSearch(String textToSearch) {
-		setSearchText(searchText);
+		isPageLoaded("List Results Page");
+		setSearchText("Category 1");
 		submit();
 	}
 
 	@Override
-	public boolean checkFooter(String str) {
-		return false;
+	public void logout() {
+		driver.findElement(By.id("listLogoutLink")).click();
 	}
 }
